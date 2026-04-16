@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  targetNamespace="http://yourdomain.org/gamecat/1.0"
-  xmlns="http://yourdomain.org/gamecat/1.0"
+  targetNamespace="http://pmuzik.github.io/gamecat/1.0"
+  xmlns="http://pmuzik.github.io/gamecat/1.0"
   elementFormDefault="qualified">
 
 <!-- Root element -->
