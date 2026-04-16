@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:gc="http://yourdomain.org/gamecat/1.0"
+  xmlns:gc="http://pmuzik.github.io/gamecat/1.0"
   exclude-result-prefixes="gc">
 
   <xsl:output method="html" version="5.0" encoding="UTF-8" indent="yes"
