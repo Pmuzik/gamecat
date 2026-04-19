@@ -1,1 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gamecat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=IBM+Plex+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --ink:        #1c1410;
+      --ink-mid:    #5a4a3a;
+      --ink-faint:  #9e8a78;
+      --paper:      #f5efe4;
+      --paper-dark: #ede4d5;
+      --accent:     #b84c1e;
+      --accent-dim: #d4855e;
+      --gold:       #c9933a;
+      --border:     #c8b89a;
+    }
+
+    html { background: var(--paper-dark); }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      color: var(--ink);
+      background: var(--paper);
+      min-height: 100vh;
+      padding: 2rem 1rem 4rem;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ───────────────────────────────────────────── */
+    .site-header {
+      border-top: 4px solid var(--ink);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .site-header::after {
+      content: '';
+      display: block;
+      height: 3px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--accent) 0px, var(--accent) 6px,
+        transparent 6px, transparent 10px
+      );
+      margin-top: 1.5rem;
+    }
+
+    .site-eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .site-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.0;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .site-description {
+      font-size: 0.92rem;
+      color: var(--ink-mid);
+      font-style: italic;
+    }
+
+    /* ── Catalog count ────────────────────────────────────── */
+    .catalog-meta {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── Cards grid ───────────────────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: var(--paper);
+      padding: 1.4rem 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background 0.15s;
+      position: relative;
+    }
+
+    .card:hover {
+      background: var(--paper-dark);
+    }
+
+    .card:hover .card-title {
+      color: var(--accent);
+    }
+
+    .card-platform {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      padding: 0.15em 0.5em;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-original-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--ink-faint);
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.03em;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      transition: color 0.15s;
+    }
+
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.2rem;
+    }
+
+    .card-meta-item {
+      font-size: 0.78rem;
+      color: var(--ink-mid);
+    }
+
+    .card-meta-item span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .card-arrow {
+      position: absolute;
+      bottom: 1.2rem;
+      right: 1.2rem;
+      font-size: 0.8rem;
+      color: var(--ink-faint);
+      transition: color 0.15s, transform 0.15s;
+    }
+
+    .card:hover .card-arrow {
+      color: var(--accent);
+      transform: translateX(3px);
+    }
+
+    /* ── Footer ───────────────────────────────────────────── */
+    .site-footer {
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 520px) {
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="site-header">
+      <p class="site-eyebrow">Video game catalog</p>
+      <h1 class="site-title">Gamecat</h1>
+      <p class="site-description">A personal catalog of video game records in XML.</p>
+    </header>
+
+    <p class="catalog-meta">1 record</p>
+
+    <div class="cards">
+
+      <!-- ── Record: Makai Toushi SaGa ───────────────────── -->
+      <!-- To add a new record, copy one .card block and update the fields -->
+      <a class="card" href="saga00.html">
+        <div class="card-platform">Game Boy</div>
+        <p class="card-original-title">Makai Toushi SaGa</p>
+        <h2 class="card-title">Final Fantasy Legend</h2>
+        <div class="card-meta">
+          <div class="card-meta-item">
+            <span>Year</span>
+            1989
+          </div>
+          <div class="card-meta-item">
+            <span>Genre</span>
+            Role-playing game
+          </div>
+          <div class="card-meta-item">
+            <span>Developer</span>
+            Square
+          </div>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+    </div>
+
+    <footer class="site-footer">
+      <span>Gamecat</span>
+      <span>Schema: <a style="color:inherit" href="gamecat_1_0.xsd">gamecat_1_0.xsd</a></span>
+    </footer>
+
+  </div>
+</body>
+</html>
