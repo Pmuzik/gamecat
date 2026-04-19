@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="https://pmuzik.github.io/gamecat/gamecat.xsl"?>
+<game xmlns="http://pmuzik.github.io/gamecat/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://github.com/Pmuzik/gamecat/gamecat_1_0.xsd">
+
+  <titles>
+    <title type="primary" lang="ja" script="Latn">Makai Toushi SaGa</title>
+    <title type="primary" lang="ja" script="Jpan">魔界塔士Sa·Ga</title>
+    <title type="localized" lang="en">Final Fantasy Legend</title>
+  </titles>
+
+  <developer authority-uri="https://www.wikidata.org/wiki/Q739552"
+    authority-source="wikidata">Square</developer>
+  <publisher authority-uri="https://www.wikidata.org/wiki/Q739552"
+    authority-source="wikidata">Square</publisher>
+
+  <platform>Game Boy</platform>
+  <genre>Role-playing game</genre>
+  <players>Single-player</players>
+
+  <releases>
+    <release>
+      <date>1989-12-15</date>
+      <region>Japan</region>
+    </release>
+    <release>
+      <date>1990-09-30</date>
+      <region>North America</region>
+    </release>
+  </releases>
+
+  <credits>
+    <credit role="director"
+        authority-uri="https://www.wikidata.org/wiki/Q419404"
+        authority-source="wikidata">Kawazu, Akitoshi</credit>
+    <credit role="designer"
+        authority-uri="https://www.wikidata.org/wiki/Q419404"
+        authority-source="wikidata">Kawazu, Akitoshi</credit>
+    <credit role="composer"
+        authority-uri="https://www.wikidata.org/wiki/Q312327"
+        authority-source="wikidata">Uematsu, Nobuo</credit>
+    <credit role="programmer"
+        authority-verified="false">Oki, Takashi</credit>
+    <credit role="programmer"
+        authority-verified="false">Okabe, Naoki</credit>
+    <credit role="artist"
+        authority-verified="false">Tanaka, Ryoko</credit>
+    <credit role="artist"
+        authority-uri="https://www.wikidata.org/wiki/Q2657029"
+        authority-source="wikidata">Tokita, Takashi</credit>
+    <credit role="writer"
+        authority-uri="https://www.wikidata.org/wiki/Q419404"
+        authority-source="wikidata">Kawazu, Akitoshi</credit>
+  </credits>
+
+</game>
