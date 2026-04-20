@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  targetNamespace="http://pmuzik.github.io/gamecat/1.0"
-  xmlns="http://pmuzik.github.io/gamecat/1.0"
+  targetNamespace="http://pmuzik.github.io/gamecat/"
+  xmlns="http://pmuzik.github.io/gamecat/"
   elementFormDefault="qualified">
 
 <!-- Root element -->
@@ -17,6 +17,7 @@
         <xs:element name="releases" type="releasesType"/>
         <xs:element name="credits" type="creditsType"/>
       </xs:sequence>
+      <xs:attribute name="id" type="xs:ID" use="required"/>
     </xs:complexType>
   </xs:element>
 

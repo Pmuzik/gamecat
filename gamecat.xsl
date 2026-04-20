@@ -546,7 +546,16 @@
           <!-- ── FOOTER ─────────────────────────────────────────── -->
           <footer class="record-footer">
             <span>Namespace: http://pmuzik.github.io/gamecat/</span>
-            <span>Schema: gamecat_1_0.xsd</span>
+            <span>Schema: <a style="color:inherit" href="gamecat_1_0.xsd">gamecat_1_0.xsd</a></span>
+            <span>
+              <a style="color:inherit">
+                <xsl:attribute name="href">
+                  <xsl:value-of select="@id"/>
+                  <xsl:text>.xml</xsl:text>
+                </xsl:attribute>
+                Source: <xsl:value-of select="@id"/>.xml
+              </a>
+            </span>
           </footer>
 
         </div><!-- /.page -->

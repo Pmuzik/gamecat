@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="https://pmuzik.github.io/gamecat/gamecat.xsl"?>
-<game xmlns="http://pmuzik.github.io/gamecat/"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://github.com/Pmuzik/gamecat/gamecat_1_0.xsd">
+<?xml-stylesheet type="text/xsl" href="gamecat.xsl"?>
+<game id="saga00"
+  xmlns="http://pmuzik.github.io/gamecat/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://pmuzik.github.io/gamecat/ gamecat_1_0.xsd">
 
   <titles>
     <title type="primary" lang="ja" script="Latn">Makai Toushi SaGa</title>
