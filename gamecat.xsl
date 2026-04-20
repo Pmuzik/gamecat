@@ -545,7 +545,7 @@
 
           <!-- ── FOOTER ─────────────────────────────────────────── -->
           <footer class="record-footer">
-            <span>Namespace: http://yourdomain.org/gamecat/1.0</span>
+            <span>Namespace: http://pmuzik.github.io/gamecat/</span>
             <span>Schema: gamecat_1_0.xsd</span>
           </footer>
 
